@@ -1,8 +1,14 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/apps
-
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true  
+kafka:
+  producer:
+    bootstrap-servers: localhost:9092  # Kafka broker URL
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 microservice:
   movies-service:
