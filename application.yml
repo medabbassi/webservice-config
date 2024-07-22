@@ -5,12 +5,8 @@ eureka:
 
 
 microservice:
-  stock-service:
+  movies-service:
     endpoints:
-      endpoint-stock: http://localhost:8091/api/v1/stock
-      endpoint-stock-by-labelle: http://localhost:8091/api/v1/stock/get-stock-by-stockLibelle/{stockLibelle}
+      endpoint-stock: http://localhost:8091/api/v1/movies/
+      endpoint-stock-by-labelle: http://localhost:8091/api/v1/movies/get-movie-by-movie-title/{movieTitle}
         
-  product-service:
-    endpoints:
-      endpoint:
-        uri: http://localhost:8090/api/v1/produit
