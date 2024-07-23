@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: movies
+  config:
+    import: "configserver:http://localhost:9898/"
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/movies?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update  # Automatically updates the database schema
+    show-sql: true  # Enable SQL query logging
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect  # Dialect for MySQL 8
+
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+
+server:
+  port: 8084  # Port on which the Movies service runs
