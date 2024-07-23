@@ -18,5 +18,5 @@ microservice:
   actors-service:
     endpoints:
       endpoint-actors: http://localhost:8084/api/v1/actors/
-      endpoint-actors-by-title: http://localhost:8084/api/v1/actors/get-movie-by-ActorRestApi/{moviename}    
-        
+      endpoint-actors-by-title: http://localhost:8084/api/v1/actors/get-movie-by-ActorRestApi/{moviename}
+
