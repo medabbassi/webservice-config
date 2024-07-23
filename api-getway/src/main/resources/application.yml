@@ -1,0 +1,20 @@
+---
+spring:
+  config:
+    import: "configserver:http://localhost:9898/"
+  application:
+    name: api-getway
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: Movies
+            uri: http://localhost:8084
+            predicates:
+              - Path=/api/v1/movies/**
+          - id: Actors
+            uri: http://localhost:8085
+            predicates:
+              - Path=/api/v1/actors/**
+server:
+    port: 8093
